@@ -1,0 +1,75 @@
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraWinFormsSample.exe.config
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraWinFormsSample.exe
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraWinFormsSample.pdb
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraDataLayer.dll
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Cassandra.dll
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\System.Threading.Tasks.Dataflow.dll
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Newtonsoft.Json.dll
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\LZ4.dll
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraDataLayer.pdb
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Cassandra.xml
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\System.Threading.Tasks.Dataflow.xml
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Newtonsoft.Json.xml
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.xml
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.csprojResolveAssemblyReference.cache
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.Form1.resources
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.Properties.Resources.resources
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.csproj.GenerateResource.Cache
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.exe
+D:\D particija\Nastava\Napredne baze podataka NOVI NASTAVNI PROGRAM\Cassandra\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.pdb
+E:\IV\VII\Napredne baze podataka\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraWinFormsSample.exe.config
+E:\IV\VII\Napredne baze podataka\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.exe
+E:\IV\VII\Napredne baze podataka\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.pdb
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraWinFormsSample.exe.config
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.exe
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.pdb
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraWinFormsSample.exe
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraWinFormsSample.pdb
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraDataLayer.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Cassandra.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\System.Threading.Tasks.Dataflow.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Newtonsoft.Json.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\LZ4.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\CassandraDataLayer.pdb
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Cassandra.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\System.Threading.Tasks.Dataflow.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Newtonsoft.Json.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.csprojResolveAssemblyReference.cache
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.Form1.resources
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.Properties.Resources.resources
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\CassandraWinFormsSample\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.csproj.GenerateResource.Cache
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\CassandraWinFormsSample.exe.config
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.exe
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.pdb
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\CassandraWinFormsSample.exe
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\CassandraWinFormsSample.pdb
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\CassandraDataLayer.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\Cassandra.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\System.Threading.Tasks.Dataflow.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\Newtonsoft.Json.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\LZ4.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\CassandraDataLayer.pdb
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\Cassandra.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\System.Threading.Tasks.Dataflow.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\Newtonsoft.Json.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.Logging.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.csprojResolveAssemblyReference.cache
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.Form1.resources
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.Properties.Resources.resources
+E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraWinFormsSample\obj\Debug\CassandraWinFormsSample.csproj.GenerateResource.Cache
