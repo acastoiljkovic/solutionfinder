@@ -14,12 +14,15 @@ namespace WebAplikacija.Controllers
             return View();
         }
 
+
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(CassandraDataLayer.QueryEntities.Korisnik korisnik)
         {
             korisnik.korisnikID = Guid.NewGuid().ToString("N");
             if (CassandraDataLayer.DataProvider.DodajKorisnika(korisnik))
-                return View(korisnik);
+                return RedirectToAction("Index", "StartPage");
             else
                 return View();
         }
