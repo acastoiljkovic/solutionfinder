@@ -1,12 +1,18 @@
-﻿@*@model IEnumerable<CassandraDataLayer.QueryEntities.Tema>*@
-
+﻿
 <h2>Home</h2>
 
 
 <div class="container">
-
-    @*@foreach (var i in Model)
-    {
-        <p>Tema</p>
-    }*@
+    @{
+        if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik() != null)
+        {
+        <span class="form-inline my-2 my-lg-0">
+            @Html.ActionLink("CREATE POST", "Index", "Post", null, new { @class = "navbar-nav mr-auto btn-dark p-3" })
+        </span>
+            }
+        }
+    @foreach (var i in CassandraDataLayer.DataProvider.VratiSveTeme())
+        {
+            @Html.Partial("~/Views/Post/View.cshtml",i);
+        }
 </div>
