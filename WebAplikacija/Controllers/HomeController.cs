@@ -16,5 +16,6 @@ namespace WebAplikacija.Controllers
             return View(CassandraDataLayer.DataProvider.VratiSveKorisnike());
         }
 
+
     }
 }

@@ -11,7 +11,12 @@ namespace WebAplikacija.Controllers
         // GET: StartPage
         public ActionResult Index()
         {
-            return View();
+            if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik() == null)
+                return View();
+            else
+            {
+                return Redirect("~/Home");
+            }
         }
     }
 }

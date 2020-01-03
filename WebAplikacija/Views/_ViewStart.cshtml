@@ -1,3 +1,10 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik() != null)
+    {
+        Layout = "~/Views/Shared/_LoggedLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }

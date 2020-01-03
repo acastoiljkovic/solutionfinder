@@ -9,20 +9,6 @@ namespace WebAplikacija.Controllers
 {
     public class LoginController : Controller
     {
-        private CassandraDataLayer.QueryEntities.Korisnik _user;
-
-        public LoginController()
-        {
-            _user = null;
-        }
-
-        public bool checkIsLogIn()
-        {
-            if (_user != null)
-                return true;
-            return false;
-        }
-
         // GET: Login
         public ActionResult Index()
         {
@@ -33,8 +19,8 @@ namespace WebAplikacija.Controllers
         [AllowAnonymous]
         public ActionResult Index(CassandraDataLayer.QueryEntities.Korisnik korisnik)
         {
-            _user = CassandraDataLayer.DataProvider.ulogujKorisnika(korisnik);
-            if (_user != null)
+            CassandraDataLayer.DataStore.GetInstance().SetKorisnik( CassandraDataLayer.DataProvider.ulogujKorisnika(korisnik));
+            if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik() != null)
             {
                 return RedirectToAction("Index", "StartPage");
             }
@@ -42,5 +28,11 @@ namespace WebAplikacija.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            CassandraDataLayer.DataStore.GetInstance().SetKorisnik(null);
+            return Redirect("~/Login");
+        }
     }
 }
