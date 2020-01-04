@@ -1,12 +1,46 @@
 ﻿@model CassandraDataLayer.QueryEntities.Tema
 
-<div class="card text-white bg-primary mb-3 p-2 m-3" style="max-width: 100rem; max-height: 20rem; ">
-    <div class="card-header">
-        <h4 class="card-title"> @Html.DisplayFor(model => model.naslov)</h4>
+    <div class="card text-white bg-primary mb-3 p-2 m-3" style="max-width: 100rem; max-height: 40rem; ">
+        <div class="card-header">
+            <h4 class="card-title"> @Html.DisplayFor(model => model.naslov)</h4>
+        </div>
+        <div class="card-body bg-secondary m-1" style="overflow:scroll; max-height: 15rem;">
+            <p class="bg-secondary text-dark"> @Html.DisplayFor(model => model.sadrzaj)</p>
+        </div>
+        <div class="card-body bg-secondary m-1" style="overflow:scroll; max-height: 15rem;">
+            <h2>KOMENTARI</h2>
+            @foreach (KeyValuePair<string, IEnumerable<string>> kv in Model.komentari)
+            {
+                CassandraDataLayer.QueryEntities.Korisnik k = CassandraDataLayer.DataProvider.VratiKorisnika(kv.Key);
+                <div class="card text-white bg-primary mb-3 p-2 m-3">
+                    <div class="card-header">@k.ime  @k.prezime</div>
+                    @foreach (string s in kv.Value)
+                    {
+                        <div class="card-body bg-secondary">
+                            <p class="text-dark"> @s</p>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        @if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik() != null)
+        {
+    <div class="card-body bg-secondary m-1">
+        @Html.BeginForm("AddComment", "Post", FormMethod.Post)
+        <input style="visibility:hidden;" name="delatnostID" value="@Model.delatnostID"></input>
+        <input style="visibility:hidden;" name="korisnikID" value="@Model.korisnikID"></input>
+        <input style="visibility:hidden;" name="temaID" value="@Model.temaID"></input>
+        <input style="visibility:hidden;" name="komKorisnikID" value="@CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID"></input>
+        <textarea style="overflow:scroll;" name="komentar"></textarea>
+        @*@Html.ActionLink("Add Comment", "AddComment", "Post", new { area = "" }, new { @class = "nav-link" })*@
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add Comment" class="btn btn-default" />
+            </div>
+        </div>
     </div>
-    <div class="card-body bg-secondary" style="overflow:scroll;">
-        <p class="bg-secondary text-dark"> @Html.DisplayFor(model => model.sadrzaj)</p>
-    </div>
-    <div class="col-1"></div>
-</div>
+                }
+            
+        </div>
 
