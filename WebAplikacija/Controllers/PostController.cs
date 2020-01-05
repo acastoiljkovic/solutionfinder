@@ -13,6 +13,7 @@ namespace WebAplikacija.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Index(CassandraDataLayer.QueryEntities.Tema tema)
         {
