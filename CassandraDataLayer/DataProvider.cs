@@ -278,6 +278,31 @@ namespace CassandraDataLayer
             }
         }
 
+        public static bool azurirajKorisnika(Korisnik korisnik)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return false;
+
+                RowSet korisnikData = session.Execute("update \"Korisnik\" set email = '"+korisnik.email+"' ," +
+                    "ime='"+korisnik.ime+ "', prezime='"+korisnik.prezime+"',telefon='"+korisnik.telefon+"',vebsajt='"+korisnik.vebsajt+"' " +
+                    "  where \"korisnikID\" = '" + korisnik.korisnikID + "'");
+                CassandraDataLayer.DataStore.GetInstance().GetKorisnik().email = korisnik.email;
+                CassandraDataLayer.DataStore.GetInstance().GetKorisnik().ime = korisnik.ime;
+                CassandraDataLayer.DataStore.GetInstance().GetKorisnik().prezime = korisnik.prezime;
+                CassandraDataLayer.DataStore.GetInstance().GetKorisnik().telefon = korisnik.telefon;
+                CassandraDataLayer.DataStore.GetInstance().GetKorisnik().vebsajt = korisnik.vebsajt;
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         public static bool ObrisiKorisnika(string korisnikID)
         {
             try
@@ -448,7 +473,7 @@ namespace CassandraDataLayer
 
                         foreach (string s in kv.Value)
                         {
-                            if (s.Equals(stariKomentar) && !promenjen)
+                            if (s.Equals(stariKomentar) && !promenjen && kv.Key.Equals(korisnikKojiKomentarise))
                             {
                                 upit += komentar;
                                 promenjen = true;
@@ -543,24 +568,6 @@ namespace CassandraDataLayer
             }
         }
 
-        public static bool dodajKomentarTemi(Tema tema, String komentar, String korisnikID)
-        {
-            try
-            {
-                ISession session = SessionManager.GetSession();
-
-                if (session == null)
-                    return false;
-
-                RowSet korisnikData = session.Execute("update \"Tema\" set ");
-
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
 
         #endregion
 

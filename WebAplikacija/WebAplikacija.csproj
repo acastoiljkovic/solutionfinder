@@ -155,6 +155,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\DelatnostController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KorisnikViewController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -230,6 +231,7 @@
     <Content Include="Views\Profil\ChangeProfile.cshtml" />
     <Content Include="Views\Post\Index.cshtml" />
     <Content Include="Views\Post\View.cshtml" />
+    <Content Include="Views\Delatnost\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

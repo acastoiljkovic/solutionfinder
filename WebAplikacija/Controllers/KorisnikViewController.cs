@@ -9,14 +9,15 @@ namespace WebAplikacija.Controllers
     public class KorisnikViewController : Controller
     {
         // GET: KorisnikView
-        public ActionResult Index()
-        {
-            return View();
-        }
-        [Route("korisnikview/korisnik/{id}")]
-        public ActionResult Korisnik(string id)
+        public ActionResult Index(string id)
         {
             return View(CassandraDataLayer.DataProvider.VratiKorisnika(id));
+        }
+
+        [HttpPost]
+        public ActionResult Korisnik(string iden)
+        {
+            return RedirectToAction("Index","KorisnikView",new { id = iden });
         }
     }
 }

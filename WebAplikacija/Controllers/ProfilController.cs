@@ -13,11 +13,21 @@ namespace WebAplikacija.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Index(CassandraDataLayer.QueryEntities.Korisnik korisnik)
+        {
+            return View(korisnik);
+        }
+
         [HttpPost]
         public ActionResult ChangeProfile(CassandraDataLayer.QueryEntities.Korisnik korisnik)
         {
+            korisnik.korisnikID = CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID;
+            if (CassandraDataLayer.DataProvider.azurirajKorisnika(korisnik))
+                return Redirect("~/Home");
 
-            return Redirect("~/StartPage");
+            return View();
         }
         [HttpGet]
         public ActionResult ChangeProfile()

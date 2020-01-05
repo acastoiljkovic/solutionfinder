@@ -1,13 +1,13 @@
 ﻿@model CassandraDataLayer.QueryEntities.Korisnik
 
-<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+<div class="card text-white bg-primary mb-3 m-2" style="max-width: 20rem;">
     <div class="card-header">
         <h4 class="card-title">@Model.ime @Model.prezime</h4>
     </div>
     <div class="card-body">
         <p class="card-text">Email: @Model.email</p>
         <p class="card-text">Telefon: @Model.telefon</p>
-        <p class="card-text">Web sajt: @Model.vebsajt</p>
+        <p class="card-text">Web sajt: <a href="https://@Model.vebsajt" class="text-light">@Model.vebsajt</a></p>
     </div>
 </div>
  

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CassandraDataLayer.QueryEntities.Delatnost>
+
+@if (Model.Count() > 1)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tip)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tip)
+            </td>
+            @if (Model.Count() > 1)
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.delatnostID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.delatnostID })
+                </td>
+            }
+        </tr>
+    }
+
+</table>

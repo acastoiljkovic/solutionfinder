@@ -1,12 +1,22 @@
-﻿
+﻿@model CassandraDataLayer.QueryEntities.Korisnik
 @{
     ViewBag.Title = "Profile";
 }
 
 <h2>Profile</h2>
 
+@if (Model != null)
+{
+    @Html.Partial("~/Views/KorisnikView/Index.cshtml", Model)
+    if (Model.korisnikID == CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID)
+    {
+        @Html.ActionLink("Change Profile", "ChangeProfile", "Profil", null, null)
+    }
+}
+else
+{
+    @Html.Partial("~/Views/KorisnikView/Index.cshtml", CassandraDataLayer.DataStore.GetInstance().GetKorisnik())
+    @Html.ActionLink("Change Profile", "ChangeProfile", "Profil", null, null)
+}
 
-@Html.Partial("~/Views/KorisnikView/Index.cshtml", CassandraDataLayer.DataStore.GetInstance().GetKorisnik())
 
-
-@Html.ActionLink("Change Profile","ChangeProfile","Profil",null,null)
