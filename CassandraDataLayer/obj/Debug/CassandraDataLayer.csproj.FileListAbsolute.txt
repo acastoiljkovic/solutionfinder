@@ -55,3 +55,23 @@ E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraDataLayer\b
 E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraDataLayer\obj\Debug\CassandraDataLayer.csprojResolveAssemblyReference.cache
 E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraDataLayer\obj\Debug\CassandraDataLayer.dll
 E:\IV\VII\Napredne baze podataka\Cassandra_projekat\Blogovi\CassandraDataLayer\obj\Debug\CassandraDataLayer.pdb
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\CassandraDataLayer.dll.config
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\CassandraDataLayer.dll
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\CassandraDataLayer.pdb
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\Cassandra.dll
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\LZ4.dll
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\System.Threading.Tasks.Dataflow.dll
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\Cassandra.xml
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\bin\Debug\System.Threading.Tasks.Dataflow.xml
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\obj\Debug\CassandraDataLayer.csprojAssemblyReference.cache
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\obj\Debug\CassandraDataLayer.csproj.CopyComplete
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\obj\Debug\CassandraDataLayer.dll
+C:\Users\Aca\Documents\Git\SolutionFinder\solutionfinder\CassandraDataLayer\obj\Debug\CassandraDataLayer.pdb

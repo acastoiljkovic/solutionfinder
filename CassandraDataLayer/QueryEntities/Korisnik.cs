@@ -14,5 +14,6 @@ namespace CassandraDataLayer.QueryEntities
         public string telefon { get; set; }
         public string email { get; set; }
         public string vebsajt { get; set; }
+        public string sifra { get; set; }
     }
 }

@@ -4,11 +4,32 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Newtonsoft.Json;
 namespace CassandraDataLayer
 {
     public static class DataProvider
     {
+
+    private static Korisnik _user = null;
+
+        public static bool SetKorisnik(Korisnik k)
+        {
+            try
+            {
+                _user = k;
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static Korisnik GetKorisnik()
+        {
+            return _user;
+        }
+
         #region Delatnost
 
         public static Delatnost VratiDelatnost(string delatnostID)
@@ -222,6 +243,11 @@ namespace CassandraDataLayer
                     korisnik.vebsajt = korisnikData["vebsajt"].ToString();
                 else
                     korisnik.vebsajt = "";
+
+                if (korisnikData["sifra"] != null)
+                    korisnik.sifra = korisnikData["sifra"].ToString();
+                else
+                    korisnik.sifra = "";
             }
             catch (Exception e)
             {
@@ -238,8 +264,11 @@ namespace CassandraDataLayer
                 if (session == null)
                     return false;
 
-                RowSet delatnostPodaci = session.Execute("insert into \"Korisnik\" (\"korisnikID\", email, ime, prezime, telefon, vebsajt)" +
-                    " values ('"+korisnik.korisnikID+"', '"+korisnik.email+"', '"+korisnik.ime+"', '"+korisnik.prezime+"', '"+korisnik.telefon+"', '"+korisnik.vebsajt+"')");
+                RowSet delatnostPodaci = session.Execute("insert into \"Korisnik\" " +
+                    "(\"korisnikID\", email, ime, prezime, telefon, vebsajt, sifra)" +
+                    " values ('"+korisnik.korisnikID+"', '"+korisnik.email+"', " +
+                    "'"+korisnik.ime+"', '"+korisnik.prezime+"', '"+korisnik.telefon+"', " +
+                    "'"+korisnik.vebsajt+ "', '" + korisnik.sifra+"')");
 
                 return true;
             }
@@ -266,6 +295,28 @@ namespace CassandraDataLayer
             {
                 return false;
             }
+        }
+
+        public  static Korisnik ulogujKorisnika(Korisnik kor)
+        {
+            ISession session = SessionManager.GetSession();
+            List<Korisnik> korisnici = new List<Korisnik>();
+
+            if (session == null)
+                return null;
+
+            var korisniciData = session.Execute("select * from \"Korisnik\" " +
+                "where \"email\" = '" + kor.email + "' and \"sifra\" = '" + kor.sifra +"' allow filtering");
+
+            foreach (var korisnikData in korisniciData)
+            {
+                Korisnik korisnik = new Korisnik();
+                OdradiDodeleKorisnik(korisnik, korisnikData);
+                korisnici.Add(korisnik);
+            }
+            if (korisnici.Count > 0)
+                return korisnici[0];
+            return null;
         }
 
         #endregion
@@ -358,12 +409,99 @@ namespace CassandraDataLayer
                 else
                     tema.vidljivost = "";
 
+                if (temaData["naslov"] != null)
+                    tema.naslov = temaData["naslov"].ToString();
+                else
+                    tema.naslov = "";
+                if(temaData["komentari"] != null)
+                    tema.komentari = (SortedDictionary<string, IEnumerable<string>>)temaData["komentari"];
+
+
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
+        public static bool DodajIzmeniKomentar(string delatnostID, string korisnikID, string temaID, string korisnikKojiKomentarise, string komentar, string stariKomentar)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return false;
+
+                Tema tema = VratiTemu(delatnostID, korisnikID, temaID);
+
+                string upit = "update \"Tema\" set komentari = {";
+
+                bool korisnikovPrviKomentar = true;
+
+                if (tema.komentari != null)
+                {
+                    foreach (KeyValuePair<string, IEnumerable<string>> kv in tema.komentari)
+                    {
+                        upit += "'" + kv.Key + "':['";
+
+                        bool promenjen = false;
+
+                        foreach (string s in kv.Value)
+                        {
+                            if (s.Equals(stariKomentar) && !promenjen)
+                            {
+                                upit += komentar;
+                                promenjen = true;
+                                korisnikovPrviKomentar = false;
+                            }
+                            else
+                            {
+                                upit += s;
+                            }
+
+                            upit += "', '";
+                        }
+
+                        if (kv.Key.Equals(korisnikKojiKomentarise) && stariKomentar.Equals(""))
+                        {
+                            korisnikovPrviKomentar = false;
+                            upit += komentar;
+                        }
+                        else
+                        {
+                            upit = upit.Substring(0, upit.Length - 4);
+                        }
+
+                        upit += "'], ";
+                    }
+
+                    if (korisnikovPrviKomentar)
+                    {
+                        upit += "'" + korisnikKojiKomentarise + "':['" + komentar;
+                    }
+                    else
+                    {
+                        upit = upit.Substring(0, upit.Length - 4);
+                    }
+                }
+                else
+                {
+                    upit += " {'" + korisnikKojiKomentarise + "':['" + komentar;
+                }
+
+                upit += "']} where \"delatnostID\" = '" + delatnostID + "' and \"korisnikID\" = '"
+                        + korisnikID + "' and \"temaID\" = '" + temaID + "';";
+                session.Execute(upit);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+
 
         public static bool DodajTemu(Tema tema)
         {
@@ -374,8 +512,8 @@ namespace CassandraDataLayer
                 if (session == null)
                     return false;
 
-                RowSet temaPodaci = session.Execute("insert into \"Tema\" (\"delatnostID\", \"korisnikID\", \"temaID\", datumKreiranja, sadrzaj, vidljivost)" +
-                    " values ('" + tema.delatnostID + "', '" + tema.korisnikID + "', '" + tema.temaID + "', '" + tema.datumKreiranja + "', '" + tema.sadrzaj + "', '" + tema.vidljivost + "')");
+                RowSet temaPodaci = session.Execute("insert into \"Tema\" (\"delatnostID\", \"korisnikID\", \"temaID\", datumKreiranja, sadrzaj, vidljivost, naslov)" +
+                    " values ('" + tema.delatnostID + "', '" + tema.korisnikID + "', '" + tema.temaID + "', '" + tema.datumKreiranja + "', '" + tema.sadrzaj + "', '" + tema.vidljivost + "', '"+tema.naslov+"')");
 
                 return true;
             }
@@ -405,7 +543,26 @@ namespace CassandraDataLayer
             }
         }
 
+        public static bool dodajKomentarTemi(Tema tema, String komentar, String korisnikID)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return false;
+
+                RowSet korisnikData = session.Execute("update \"Tema\" set ");
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         #endregion
-       // https:/shermandigital.com/blog/designing-a-cassandra-data-model/
+
     }
 }
