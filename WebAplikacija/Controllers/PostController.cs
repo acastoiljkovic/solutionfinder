@@ -19,6 +19,7 @@ namespace WebAplikacija.Controllers
         {
             tema.korisnikID = CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID;
             tema.temaID = Guid.NewGuid().ToString("N");
+            tema.datumKreiranja = DateTime.Now.ToString();
             if (CassandraDataLayer.DataProvider.DodajTemu(tema))
                 return Redirect("~/Home");
             return View();

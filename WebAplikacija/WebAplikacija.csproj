@@ -159,6 +159,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KorisnikViewController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MyPostsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProfilController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -232,6 +233,10 @@
     <Content Include="Views\Post\Index.cshtml" />
     <Content Include="Views\Post\View.cshtml" />
     <Content Include="Views\Delatnost\Index.cshtml" />
+    <Content Include="Views\Delatnost\Edit.cshtml" />
+    <Content Include="Views\Delatnost\Create.cshtml" />
+    <Content Include="Views\MyPosts\Index.cshtml" />
+    <Content Include="Views\MyPosts\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

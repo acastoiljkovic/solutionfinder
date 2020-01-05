@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CassandraDataLayer.QueryEntities.Tema>
+
+@{
+    ViewBag.Title = "List My Posts";
+}
+
+
+@Html.ActionLink("Create Post", "Index", "Post", null, new { @class = "btn-outline-dark " })
+
+<table class="table ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.naslov)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sadrzaj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vidljivost)
+        </th>
+        <th>
+            Datum Kreiranja
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.naslov)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sadrzaj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vidljivost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datumKreiranja)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.temaID, korID = item.korisnikID, delaID = item.delatnostID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.temaID, korID = item.korisnikID, delaID = item.delatnostID})
+            </td>
+        </tr>
+    }
+
+</table>

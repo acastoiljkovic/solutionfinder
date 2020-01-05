@@ -113,7 +113,25 @@ namespace CassandraDataLayer
                 throw new Exception(e.Message);
             }
         }
+        public static bool azurirajDelatnost(Delatnost delatnost)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
 
+                if (session == null)
+                    return false;
+
+                RowSet delatnostData = session.Execute("update \"Delatnost\" set naziv = '" + delatnost.naziv+ "' ,"
+                    + " opis = '"+ delatnost.opis+ "', tip = '"+delatnost.tip+"'" +
+                    "  where \"delatnostID\" = '" + delatnost.delatnostID + "'");
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
         public static bool DodajDelatnost(Delatnost delatnost)
         {
             try
@@ -400,6 +418,53 @@ namespace CassandraDataLayer
             }
         }
 
+        public static List<Tema> vratiSveTemeKorisnika(string id)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+                List<Tema> teme = new List<Tema>();
+
+                if (session == null)
+                    return null;
+
+                var temeData = session.Execute("select * from \"Tema\" where \"korisnikID\" = '"+id+ "' allow filtering;");
+
+                foreach (var temaData in temeData)
+                {
+                    Tema tema = new Tema();
+                    OdradiDodeleTema(tema, temaData);
+                    teme.Add(tema);
+                }
+
+                return teme;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        public static bool azurirajTemu(Tema tema)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return false;
+
+                RowSet temaData = session.Execute("update \"Tema\" set datumkreiranja = '" + tema.datumKreiranja + "' ," +
+                    "naslov='" + tema.naslov + "', sadrzaj='" + tema.sadrzaj + "',vidljivost='" + tema.vidljivost+ "'" +
+                    "  where \"korisnikID\" = '" + tema.korisnikID + "' and \"delatnostID\" = '"+tema.delatnostID+"' and" +
+                    "\"temaID\" = '"+tema.temaID+"'");
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        
         private static void OdradiDodeleTema(Tema tema, Row temaData)
         {
             try

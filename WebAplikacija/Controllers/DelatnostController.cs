@@ -27,5 +27,33 @@ namespace WebAplikacija.Controllers
         {
             return RedirectToAction("Index", "Delatnost",new { id = iden });
         }
+        [HttpDelete]
+        public ActionResult Delete(string id)
+        {
+            CassandraDataLayer.DataProvider.ObrisiDelatnost(id);
+            return RedirectToAction("ViewDelatnost");
+        }
+        public ActionResult Edit(string id)
+        {
+            return View(CassandraDataLayer.DataProvider.VratiDelatnost(id));
+        }
+        [HttpPost]
+        public ActionResult Edit(CassandraDataLayer.QueryEntities.Delatnost delatnost)
+        {
+            CassandraDataLayer.DataProvider.azurirajDelatnost(delatnost);
+            return RedirectToAction("ViewDelatnost");
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(CassandraDataLayer.QueryEntities.Delatnost delatnost)
+        {
+            delatnost.delatnostID = Guid.NewGuid().ToString("N");
+            CassandraDataLayer.DataProvider.DodajDelatnost(delatnost);
+            return RedirectToAction("ViewDelatnost");
+        }
     }
 }

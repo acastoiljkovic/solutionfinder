@@ -12,7 +12,10 @@
             }
         }
     @foreach (var i in CassandraDataLayer.DataProvider.VratiSveTeme())
+    {
+        if (i.vidljivost == "svi")
         {
-            @Html.Partial("~/Views/Post/View.cshtml",i);
+            @Html.Partial("~/Views/Post/View.cshtml", i);
         }
+    }
 </div>
