@@ -13,7 +13,7 @@ namespace CassandraDataLayer
 
         private DataStore()
         {
-            _user = null;
+            _user = new QueryEntities.Korisnik();
         }
 
         public static DataStore GetInstance()

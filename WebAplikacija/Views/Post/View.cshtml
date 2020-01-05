@@ -10,7 +10,7 @@
         }
         @using (Html.BeginForm("Korisnik", "KorisnikView", FormMethod.Post))
         {
-            <input style="visibility:hidden; position:absolute;"  type="text" name="iden" value="@korisnik1.korisnikID" />
+            <input style="visibility:hidden; position:absolute;" type="text" name="iden" value="@korisnik1.korisnikID" />
             <input type="submit" value="@korisnik1.ime  @korisnik1.prezime" class="page-link m-1" />
         }
         @using (Html.BeginForm("ViewDelatnost", "Delatnost", FormMethod.Post))
@@ -30,7 +30,28 @@
             {
                 CassandraDataLayer.QueryEntities.Korisnik k = CassandraDataLayer.DataProvider.VratiKorisnika(kv.Key);
                 <div class="card text-white bg-primary mb-3 p-2 m-3">
-                    <div class="card-header">@k.ime  @k.prezime</div>
+                    <div class="card-header">
+                        @k.ime  @k.prezime
+                        @if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik()!= null && k.korisnikID == CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID)
+                        {
+                            <span class="form-inline my-2 my-lg-0">
+                                @using (Html.BeginForm("DeleteComment", "Post", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input style="visibility:hidden; position:absolute;" name="delatnostID" value="@Model.delatnostID"></input>
+                                    <input style="visibility:hidden; position:absolute;" name="korisnikID" value="@Model.korisnikID"></input>
+                                    <input style="visibility:hidden; position:absolute;" name="temaID" value="@Model.temaID"></input>
+                                    <input style="visibility:hidden; position:absolute;" name="komKorisnikID" value="@CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID"></input>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Delete" class=" btn btn-light" />
+                                        </div>
+                                    </div>
+                                }
+                            </span>
+                        }
+                    </div>
                     @foreach (string s in kv.Value)
                     {
                         <div class="card-body bg-secondary">

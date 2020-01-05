@@ -464,7 +464,72 @@ namespace CassandraDataLayer
                 return false;
             }
         }
-        
+
+        public static bool ObrisiKomentareSaTeme(string delatnostID, string korisnikID, string temaID, string korisnikCijJeKom)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return false;
+
+                Tema tema = VratiTemu(delatnostID, korisnikID, temaID);
+
+                string upit = "update \"Tema\" set komentari = ";
+
+                if (tema.komentari != null)
+                {
+                    if (tema.komentari.Count > 1)
+                    {
+                        upit += "{";
+                        foreach (KeyValuePair<string, IEnumerable<string>> kv in tema.komentari)
+                        {
+                            if (!kv.Key.Equals(korisnikCijJeKom))
+                            {
+                                upit += "'" + kv.Key + "':['";
+
+                                foreach (string s in kv.Value)
+                                {
+                                    upit += s + "', '";
+                                }
+
+                                upit = upit.Substring(0, upit.Length - 3);
+                                upit += "], ";
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+
+                        upit = upit.Substring(0, upit.Length - 2);
+
+                        upit += "}";
+                    }
+                    else
+                    {
+                        upit += "null";
+                    }
+
+                    upit += " where \"delatnostID\" = '" + delatnostID + "' and \"korisnikID\" = '"
+                            + korisnikID + "' and \"temaID\" = '" + temaID + "';";
+                    session.Execute(upit);
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+
         private static void OdradiDodeleTema(Tema tema, Row temaData)
         {
             try

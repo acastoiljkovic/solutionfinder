@@ -32,5 +32,12 @@ namespace WebAplikacija.Controllers
                 return Redirect("~/Home");
             return Redirect("~/Login");
         }
+        [HttpPost]
+        public ActionResult DeleteComment(string delatnostID, string korisnikID, string temaID, string komKorisnikID)
+        {
+            if (CassandraDataLayer.DataProvider.ObrisiKomentareSaTeme(delatnostID, korisnikID, temaID, komKorisnikID))
+                return Redirect("~/Home");
+            return Redirect("~/Login");
+        }
     }
 }
