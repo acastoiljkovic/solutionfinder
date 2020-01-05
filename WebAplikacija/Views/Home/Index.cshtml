@@ -4,7 +4,7 @@
 
 <div class="container">
     @{
-        if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik() != null)
+        if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID != null)
         {
         <span class="form-inline my-2 my-lg-0">
             @Html.ActionLink("CREATE POST", "Index", "Post", null, new { @class = "navbar-nav mr-auto btn-dark p-3" })

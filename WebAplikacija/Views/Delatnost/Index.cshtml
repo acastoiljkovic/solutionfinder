@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<CassandraDataLayer.QueryEntities.Delatnost>
 
-@if (Model.Count() > 1)
+@if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID != null)
 {
     <p>
         @Html.ActionLink("Create New", "Create")
@@ -32,7 +32,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.tip)
             </td>
-            @if (Model.Count() > 1)
+            @if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID != null)
             {
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.delatnostID }) |

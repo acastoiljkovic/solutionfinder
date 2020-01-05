@@ -19,3 +19,24 @@ textarea {
 .navbar-collapse.in {
     display: block !important;
 }
+
+.container {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+
+.container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+#sidebar {
+    max-height: 15rem;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+    #sidebar #scroller {
+        max-height: 15rem;
+        overflow: scroll;
+        scrollbar-width: none;
+    }

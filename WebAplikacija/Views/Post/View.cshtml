@@ -1,87 +1,100 @@
 ﻿@model CassandraDataLayer.QueryEntities.Tema
 
 <div class="card text-white bg-primary mb-3 p-2 m-3" style="max-width: 100rem; max-height: 40rem; ">
-    <div class="card-header">
-        <h4 class="card-title"> @Html.DisplayFor(model => model.naslov)</h4>
+    <div class="card-header col-12 mr-auto form-inline my-2 my-lg-0">
+        <h4 class="card-title mr-auto"> @Html.DisplayFor(model => model.naslov)</h4>
         @{
             CassandraDataLayer.QueryEntities.Korisnik korisnik1 = @CassandraDataLayer.DataProvider.VratiKorisnika(Model.korisnikID);
             CassandraDataLayer.QueryEntities.Delatnost d = @CassandraDataLayer.DataProvider.VratiDelatnost(Model.delatnostID);
 
         }
-        @using (Html.BeginForm("Korisnik", "KorisnikView", FormMethod.Post))
-        {
-            <input style="visibility:hidden; position:absolute;" type="text" name="iden" value="@korisnik1.korisnikID" />
-            <input type="submit" value="@korisnik1.ime  @korisnik1.prezime" class="page-link m-1" />
-        }
-        @using (Html.BeginForm("ViewDelatnost", "Delatnost", FormMethod.Post))
-        {
-            <input style="visibility:hidden;  position:absolute;" type="text" name="iden" value="@d.delatnostID" />
-            <input type="submit" value="@d.naziv" class="page-link m-1" />
-        }
+        <div class="m" style="display:flex; flex-direction:column; justify-content:flex-end;">
+            @using (Html.BeginForm("Korisnik", "KorisnikView", FormMethod.Post))
+            {
+                <input style="visibility:hidden; position:absolute;" type="text" name="iden" value="@korisnik1.korisnikID" />
+                <span class="form-inline my-2 my-lg-0">
+                    Author:
+                    <input type="submit" value="@korisnik1.ime  @korisnik1.prezime" id="submit" class="btn-dark  mr-auto" />
+                </span>
+            }
+            @using (Html.BeginForm("ViewDelatnost", "Delatnost", FormMethod.Post))
+            {
+                <input style="visibility:hidden;  position:absolute;" type="text" name="iden" value="@d.delatnostID" />
+                <span class="form-inline my-2 my-lg-0">
+                    Delatnost:
+                    <input type="submit" value="@d.naziv" class="btn-dark mr-auto" />
+                </span>
+            }
+        </div>
     </div>
-    <div class="card-body bg-secondary m-1" style="overflow:scroll; max-height: 15rem;">
-        <p class="bg-secondary text-dark"> @Html.DisplayFor(model => model.sadrzaj)</p>
+    <div id="sidebar">
+        <div class="card-body bg-secondary m-1" id="scroller">
+            <p class="bg-secondary text-dark"> @Html.DisplayFor(model => model.sadrzaj)</p>
+        </div>
     </div>
     @if (Model.komentari.Count > 0)
     {
-        <div class="card-body bg-secondary m-1" style="overflow:scroll; max-height: 15rem;">
-            <h2>KOMENTARI</h2>
-            @foreach (KeyValuePair<string, IEnumerable<string>> kv in Model.komentari)
-            {
-                CassandraDataLayer.QueryEntities.Korisnik k = CassandraDataLayer.DataProvider.VratiKorisnika(kv.Key);
-                <div class="card text-white bg-primary mb-3 p-2 m-3">
-                    <div class="card-header">
-                        @k.ime  @k.prezime
-                        @if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik()!= null && k.korisnikID == CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID)
-                        {
-                            <span class="form-inline my-2 my-lg-0">
-                                @using (Html.BeginForm("DeleteComment", "Post", FormMethod.Post))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    <input style="visibility:hidden; position:absolute;" name="delatnostID" value="@Model.delatnostID"></input>
-                                    <input style="visibility:hidden; position:absolute;" name="korisnikID" value="@Model.korisnikID"></input>
-                                    <input style="visibility:hidden; position:absolute;" name="temaID" value="@Model.temaID"></input>
-                                    <input style="visibility:hidden; position:absolute;" name="komKorisnikID" value="@CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID"></input>
+        <div id="sidebar">
+            <h4 class="text-light m-1">KOMENTARI</h4>
+            <div class="card-body bg-secondary m-1" id="scroller">
 
-                                    <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
-                                            <input type="submit" value="Delete" class=" btn btn-light" />
+                @foreach (KeyValuePair<string, IEnumerable<string>> kv in Model.komentari)
+                {
+                    CassandraDataLayer.QueryEntities.Korisnik k = CassandraDataLayer.DataProvider.VratiKorisnika(kv.Key);
+                    <div class="card text-white bg-primary p-2 m-2">
+                        <div style="display:flex; flex-direction:row; justify-content:space-between;" class="card-header">
+                            @k.ime  @k.prezime
+                            <div class="p-0 m-0 " style="display:flex; flex-direction:row; justify-content:flex-end;">
+                                @if (k.korisnikID == CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID)
+                                {
+
+                                    using (Html.BeginForm("DeleteComment", "Post", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <input style="visibility:hidden; position:absolute;" name="delatnostID" value="@Model.delatnostID"></input>
+                                        <input style="visibility:hidden; position:absolute;" name="korisnikID" value="@Model.korisnikID"></input>
+                                        <input style="visibility:hidden; position:absolute;" name="temaID" value="@Model.temaID"></input>
+                                        <input style="visibility:hidden; position:absolute;" name="komKorisnikID" value="@CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID"></input>
+
+                                        <div class="form-group">
+                                            <input type="submit" value="Delete" class=" btn btn-light p-1 m-0" />
+
                                         </div>
-                                    </div>
+                                    }
                                 }
-                            </span>
+                            </div>
+                        </div>
+                        @foreach (string s in kv.Value)
+                        {
+                            <div class="card-body bg-secondary">
+                                <p class="text-dark"> @s</p>
+                            </div>
                         }
                     </div>
-                    @foreach (string s in kv.Value)
-                    {
-                        <div class="card-body bg-secondary">
-                            <p class="text-dark"> @s</p>
-                        </div>
-                    }
-                </div>
-            }
+                }
+            </div>
         </div>
     }
 
-    @if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik() != null)
+    @if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID != null)
     {
-        <div class="card-body bg-primary m-1">
-            @using (Html.BeginForm("AddComment", "Post", FormMethod.Post))
-            {
+        using (Html.BeginForm("AddComment", "Post", FormMethod.Post))
+        {
+
+            <div style="display:flex; flex-direction:row; justify-content:space-evenly;"class="m-1 p-1" >
                 @Html.AntiForgeryToken()
-                <textarea style="" name="komentar"></textarea>
+                <textarea style="" cols="40" name="komentar"></textarea>
                 <input style="visibility:hidden; position:absolute;" name="delatnostID" value="@Model.delatnostID"></input>
                 <input style="visibility:hidden; position:absolute;" name="korisnikID" value="@Model.korisnikID"></input>
                 <input style="visibility:hidden; position:absolute;" name="temaID" value="@Model.temaID"></input>
                 <input style="visibility:hidden; position:absolute;" name="komKorisnikID" value="@CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID"></input>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Add Comment" class=" btn btn-light" />
-                    </div>
-                </div>
-            }
-        </div>
+            </div>
+
+            <div style="display:flex; flex-direction:row; justify-content:space-evenly;" >
+                <input type="submit" value="Add Comment" class="btn text-light btn-outline-dark p-0" />
+            </div>
+        }
     }
 
 

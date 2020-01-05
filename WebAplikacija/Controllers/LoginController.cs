@@ -20,7 +20,7 @@ namespace WebAplikacija.Controllers
         public ActionResult Index(CassandraDataLayer.QueryEntities.Korisnik korisnik)
         {
             CassandraDataLayer.DataStore.GetInstance().SetKorisnik( CassandraDataLayer.DataProvider.ulogujKorisnika(korisnik));
-            if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik() != null)
+            if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID != null)
             {
                 return RedirectToAction("Index", "StartPage");
             }
@@ -31,7 +31,7 @@ namespace WebAplikacija.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
-            CassandraDataLayer.DataStore.GetInstance().SetKorisnik(null);
+            CassandraDataLayer.DataStore.GetInstance().SetKorisnik(new CassandraDataLayer.QueryEntities.Korisnik());
             return Redirect("~/Login");
         }
     }
