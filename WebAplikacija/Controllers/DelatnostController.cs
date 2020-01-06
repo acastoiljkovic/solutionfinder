@@ -27,7 +27,7 @@ namespace WebAplikacija.Controllers
         {
             return RedirectToAction("Index", "Delatnost",new { id = iden });
         }
-        [HttpDelete]
+        
         public ActionResult Delete(string id)
         {
             CassandraDataLayer.DataProvider.ObrisiDelatnost(id);

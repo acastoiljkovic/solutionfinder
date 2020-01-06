@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CassandraDataLayer.QueryEntities.Tema>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search Post's</h2>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-dark">
+            <div class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto form-inline">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <input type="text" name="searchText" class="form-control mr-sm-2" />
+                        List<SelectListItem> listItems = new List<SelectListItem>();
+                        listItems.Add(new SelectListItem { Text = "---Select Delatnost---", Value = "nema", Selected = true });
+                        foreach (CassandraDataLayer.QueryEntities.Delatnost d in CassandraDataLayer.DataProvider.VratiSveDelatnosti())
+                        {
+                            listItems.Add(new SelectListItem { Text = d.naziv, Value = d.delatnostID });
+                        }
+
+                        @Html.DropDownList("delatnostID", listItems, new { @class = " form-control mr-sm-2" })
+
+
+
+                        <input type="submit" value="Search" class="btn btn-secondary my-2 my-sm-0" />
+
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="card-body">
+            @if (Model != null && Model.Count() > 0)
+            {
+                foreach (var i in Model)
+                {
+                    if (i.vidljivost == "svi")
+                    {
+                        @Html.Partial("~/Views/Post/View.cshtml", i);
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+

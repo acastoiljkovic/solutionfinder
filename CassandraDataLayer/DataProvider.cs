@@ -113,7 +113,7 @@ namespace CassandraDataLayer
             }
             catch(Exception e)
             {
-                return null;
+                return new Delatnost();
             }
         }
 
@@ -129,13 +129,7 @@ namespace CassandraDataLayer
 
                 var delatnostiData = session.Execute("select * from \"Delatnost\"");
 
-                if (delatnostiData.Count() == 0)
-                {
-                    if (InicijalizujDelatnosti())
-                        delatnostiData = session.Execute("select * from \"Delatnost\"");
-                    else
-                        return null;
-                }
+                
 
                 foreach (var delatnostData in delatnostiData)
                 {
@@ -144,11 +138,27 @@ namespace CassandraDataLayer
                     delatnosti.Add(delatnost);
                 }
 
+                if (delatnosti.Count() == 0)
+                {
+                    if (InicijalizujDelatnosti())
+                    {
+                        delatnostiData = session.Execute("select * from \"Delatnost\"");
+                        foreach (var delatnostData in delatnostiData)
+                        {
+                            Delatnost delatnost = new Delatnost();
+                            OdradiDodeleDelatnost(delatnost, delatnostData);
+                            delatnosti.Add(delatnost);
+                        }
+                    }
+                    else
+                        return delatnosti;
+                }
+
                 return delatnosti;
             }
             catch(Exception e)
             {
-                return null;
+                return new List<Delatnost>();
             }
         }
 
@@ -265,7 +275,7 @@ namespace CassandraDataLayer
             }
             catch (Exception e)
             {
-                return null;
+                return new Korisnik();
             }
         }
 
@@ -293,7 +303,7 @@ namespace CassandraDataLayer
             }
             catch (Exception e)
             {
-                return null;
+                return new List<Korisnik>();
             }
         }
 
@@ -452,7 +462,7 @@ namespace CassandraDataLayer
             }
             if (korisnici.Count > 0)
                 return korisnici[0];
-            return null;
+            return new Korisnik();
         }
 
         #endregion
@@ -480,7 +490,7 @@ namespace CassandraDataLayer
             }
             catch (Exception e)
             {
-                return null;
+                return new Tema();
             }
         }
 
@@ -496,13 +506,7 @@ namespace CassandraDataLayer
 
                 var temeData = session.Execute("select * from \"Tema\"");
 
-                if(temeData.Count() == 0)
-                {
-                    if (InicijalizujKorisnike() && InicijalizujTeme())
-                        temeData = session.Execute("select * from \"Tema\"");
-                    else
-                        return null;
-                }
+                
 
                 foreach (var temaData in temeData)
                 {
@@ -511,11 +515,27 @@ namespace CassandraDataLayer
                     teme.Add(tema);
                 }
 
+                if (teme.Count() == 0)
+                {
+                    if (InicijalizujDelatnosti() && InicijalizujKorisnike() && InicijalizujTeme())
+                    {
+                        temeData = session.Execute("select * from \"Tema\"");
+                        foreach (var temaData in temeData)
+                        {
+                            Tema tema = new Tema();
+                            OdradiDodeleTema(tema, temaData);
+                            teme.Add(tema);
+                        }
+                    }
+                    else
+                        return teme;
+                }
+
                 return teme;
             }
             catch (Exception e)
             {
-                return null;
+                return new List<Tema>();
             }
         }
 
@@ -542,7 +562,7 @@ namespace CassandraDataLayer
             }
             catch (Exception e)
             {
-                return null;
+                return new List<Tema>();
             }
         }
         public static bool azurirajTemu(Tema tema)

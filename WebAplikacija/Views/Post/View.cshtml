@@ -1,6 +1,6 @@
 ﻿@model CassandraDataLayer.QueryEntities.Tema
 
-<div class="card text-white bg-primary mb-3 p-2 m-3" style="max-width: 100rem; max-height: 40rem; ">
+<div class="card text-white bg-dark mb-3 p-2 m-3" style="max-width: 100rem; max-height: 40rem; ">
     <div class="card-header col-12 mr-auto form-inline my-2 my-lg-0">
         <h4 class="card-title mr-auto"> @Html.DisplayFor(model => model.naslov)</h4>
         @{
@@ -36,7 +36,7 @@
     {
         <div id="sidebar">
             <h4 class="text-light m-1">KOMENTARI</h4>
-            <div class="card-body bg-secondary m-1" id="scroller">
+            <div class="card-body bg-dark m-1" id="scroller">
 
                 @foreach (KeyValuePair<string, IEnumerable<string>> kv in Model.komentari)
                 {
@@ -57,7 +57,7 @@
                                         <input style="visibility:hidden; position:absolute;" name="komKorisnikID" value="@CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID"></input>
 
                                         <div class="form-group">
-                                            <input type="submit" value="Delete" class=" btn btn-light p-1 m-0" />
+                                            <input type="submit" value="Delete" class=" btn btn-light p-1 m-0 rounded-lg" />
 
                                         </div>
                                     }
@@ -92,7 +92,7 @@
             </div>
 
             <div style="display:flex; flex-direction:row; justify-content:space-evenly;" >
-                <input type="submit" value="Add Comment" class="btn text-light btn-outline-dark p-0" />
+                <input type="submit" value="Add Comment" class="btn btn-dark p-1" />
             </div>
         }
     }
