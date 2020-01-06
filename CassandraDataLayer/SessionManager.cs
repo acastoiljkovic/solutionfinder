@@ -26,7 +26,7 @@ namespace CassandraDataLayer
             if(session == null)
             {
                 Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
-                session = cluster.Connect("Blogovi");
+                session = cluster.Connect("Blogovi2");
             }
 
             return session;
