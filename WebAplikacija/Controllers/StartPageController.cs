@@ -11,7 +11,7 @@ namespace WebAplikacija.Controllers
         // GET: StartPage
         public ActionResult Index()
         {
-            if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik() == null)
+            if (CassandraDataLayer.DataStore.GetInstance().GetKorisnik().korisnikID == null)
                 return View();
             else
             {
