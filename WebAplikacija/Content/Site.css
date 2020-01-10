@@ -3,13 +3,11 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
@@ -21,22 +19,40 @@ textarea {
 }
 
 .container {
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .container::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    display: none; 
 }
 
 #sidebar {
-    max-height: 15rem;
+ 
+    /*max-height: 15rem;*/
     overflow: hidden;
     scrollbar-width: none;
 }
 
     #sidebar #scroller {
-        max-height: 15rem;
+        /*max-height: 15rem;*/
         overflow: scroll;
         scrollbar-width: none;
+    }
+
+.btnLink{
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background-color: #808080;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 3px 4px 1px rgba(0,0,0,.2) inset;
+}
+
+    .btnLink:hover {
+        background-color: #000000;
+        color: white;
+        text-decoration: none;
     }
