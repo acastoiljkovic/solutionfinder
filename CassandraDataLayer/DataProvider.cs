@@ -9,27 +9,6 @@ namespace CassandraDataLayer
 {
     public static class DataProvider
     {
-
-    private static Korisnik _user = null;
-
-        public static bool SetKorisnik(Korisnik k)
-        {
-            try
-            {
-                _user = k;
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
-
-        public static Korisnik GetKorisnik()
-        {
-            return _user;
-        }
-
         #region Delatnost
 
         public static bool InicijalizujDelatnosti()
@@ -48,39 +27,39 @@ namespace CassandraDataLayer
                             "informacionim sistemima (IS), softverskim aplikacijama i hardverom' ,'Nauka');");
 
                 session.Execute("INSERT INTO \"Delatnost\"(\"delatnostID\", naziv, opis, tip)" +
-                            "VALUES ('2','Narodna knjizevnost' ,'Narodna (usmena) književnost se sastoji od priča i pesama"+
-                            " koje su stvorili nepoznati talentovani pojedinci. Njihove umotvorine prenosile su se usmeno sa"+
-                            " generacije na generaciju, a prvobitna priča ili pesma često je menjala svoj oblik i sadržinu jer"+
+                            "VALUES ('2','Narodna knjizevnost' ,'Narodna (usmena) književnost se sastoji od priča i pesama" +
+                            " koje su stvorili nepoznati talentovani pojedinci. Njihove umotvorine prenosile su se usmeno sa" +
+                            " generacije na generaciju, a prvobitna priča ili pesma često je menjala svoj oblik i sadržinu jer" +
                             " je neko od prenosilaca tokom pričanja ili pevanja što dodavao ili izostavljao' ,'Knjizevnost');");
 
                 session.Execute("INSERT INTO \"Delatnost\"(\"delatnostID\", naziv, opis, tip)" +
-                            "VALUES ('3','Psihologija' ,'Psihologija je nauka o ponašanju i mentalnim procesima. Mentalni"+
-                            " procesi obuhvataju svest i nesvesne procese. Psiholozi nastoje da objasne ulogu mentalnih "+
-                            "procesa u pojedinačnom i grupnom ponašanju. Oni takođe proučavaju i biološke procese koji su u"+
+                            "VALUES ('3','Psihologija' ,'Psihologija je nauka o ponašanju i mentalnim procesima. Mentalni" +
+                            " procesi obuhvataju svest i nesvesne procese. Psiholozi nastoje da objasne ulogu mentalnih " +
+                            "procesa u pojedinačnom i grupnom ponašanju. Oni takođe proučavaju i biološke procese koji su u" +
                             " osnovi ponašanja.' ,'Nauka');");
 
                 session.Execute("INSERT INTO \"Delatnost\"(\"delatnostID\", naziv, opis, tip)" +
-                            "VALUES ('4','Medicina' ,'Medicina se bavi dijagnostikom, preventivom i terapijom fizičke i "+
-                            "psihičke bolesti čoveka. Medicina oznacava i nauku bolesti i prakticnu primenu. Savremena "+
-                            "medicina primenjuje biomedicinske nauke, biomedicinska istrazivanja, kao i geneticku i medicinsku"+
+                            "VALUES ('4','Medicina' ,'Medicina se bavi dijagnostikom, preventivom i terapijom fizičke i " +
+                            "psihičke bolesti čoveka. Medicina oznacava i nauku bolesti i prakticnu primenu. Savremena " +
+                            "medicina primenjuje biomedicinske nauke, biomedicinska istrazivanja, kao i geneticku i medicinsku" +
                             " tehnologiju ' ,'Nauka');");
 
                 session.Execute("INSERT INTO \"Delatnost\"(\"delatnostID\", naziv, opis, tip)" +
-                            "VALUES ('5','Masinstvo' ,'Masinstvo ili strojarstvo jeste disciplina inženjerstva koja se odnosi na principe "+
-                            "inženjerstva, fizike i nauke o materijalima za analizu, dizajn, proizvodnju i upravljanje mehaničkim sistemima."+
-                            " Masinstvo je grana inženjerstva koja uključuje proizvodnju i korištenje toplote i mehaničke snage za dizajn, "+
+                            "VALUES ('5','Masinstvo' ,'Masinstvo ili strojarstvo jeste disciplina inženjerstva koja se odnosi na principe " +
+                            "inženjerstva, fizike i nauke o materijalima za analizu, dizajn, proizvodnju i upravljanje mehaničkim sistemima." +
+                            " Masinstvo je grana inženjerstva koja uključuje proizvodnju i korištenje toplote i mehaničke snage za dizajn, " +
                             "proizvodnju i operiranje mašinama i alatima. Jedna je od najstarijih i najširih disciplina inženjerstva.' ,'Konstrukcije');");
 
                 session.Execute("INSERT INTO \"Delatnost\"(\"delatnostID\", naziv, opis, tip)" +
-                            "VALUES ('6','Gradjevinarstvo' ,'Opste gradjevinarstvo predstavlja izgradnju kompletnih stambenih "+
-                            "i poslovnih zgrada, prodavnica i drugih javnih zgrada, pomoćnih i poljoprivrednih zgrada i sl., "+
-                            "ili, pak, izgradnju ostalih građevina kao što su autoputevi, ulice, mostovi, tuneli, železničke pruge,"+
-                            " aerodromi, pristaništa i drugi priobalni objekti, sistemi za navodnjavanje, kanalizacioni sistemi, "+
+                            "VALUES ('6','Gradjevinarstvo' ,'Opste gradjevinarstvo predstavlja izgradnju kompletnih stambenih " +
+                            "i poslovnih zgrada, prodavnica i drugih javnih zgrada, pomoćnih i poljoprivrednih zgrada i sl., " +
+                            "ili, pak, izgradnju ostalih građevina kao što su autoputevi, ulice, mostovi, tuneli, železničke pruge," +
+                            " aerodromi, pristaništa i drugi priobalni objekti, sistemi za navodnjavanje, kanalizacioni sistemi, " +
                             "industrijski objekti, cevovodi i električni vodovi, sportski objekti itd.' ,'Izgradnja');");
 
                 session.Execute("INSERT INTO \"Delatnost\"(\"delatnostID\", naziv, opis, tip)" +
-                            "VALUES ('7','Arhitektura', 'U uzem smislu, arhitektura je nauka i umetnost projektovanja i "+
-                            "oblikovanja zgrada, odnosno unutrašnjeg i spoljašnjeg arhitektonskog prostora: enterijera i "+
+                            "VALUES ('7','Arhitektura', 'U uzem smislu, arhitektura je nauka i umetnost projektovanja i " +
+                            "oblikovanja zgrada, odnosno unutrašnjeg i spoljašnjeg arhitektonskog prostora: enterijera i " +
                             "eksterijera.' ,'Nauka');");
 
 
@@ -102,7 +81,7 @@ namespace CassandraDataLayer
                 if (session == null)
                     return null;
 
-                Row delatnostData = session.Execute("select * from \"Delatnost\" where \"delatnostID\"='"+delatnostID+"'").FirstOrDefault();
+                Row delatnostData = session.Execute("select * from \"Delatnost\" where \"delatnostID\"='" + delatnostID + "'").FirstOrDefault();
 
                 if (delatnostData != null)
                 {
@@ -111,7 +90,7 @@ namespace CassandraDataLayer
 
                 return delatnost;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return new Delatnost();
             }
@@ -129,7 +108,7 @@ namespace CassandraDataLayer
 
                 var delatnostiData = session.Execute("select * from \"Delatnost\"");
 
-                
+
 
                 foreach (var delatnostData in delatnostiData)
                 {
@@ -156,7 +135,7 @@ namespace CassandraDataLayer
 
                 return delatnosti;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return new List<Delatnost>();
             }
@@ -186,7 +165,7 @@ namespace CassandraDataLayer
                 else
                     delatnost.tip = "";
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
@@ -200,8 +179,8 @@ namespace CassandraDataLayer
                 if (session == null)
                     return false;
 
-                RowSet delatnostData = session.Execute("update \"Delatnost\" set naziv = '" + delatnost.naziv+ "' ,"
-                    + " opis = '"+ delatnost.opis+ "', tip = '"+delatnost.tip+"'" +
+                RowSet delatnostData = session.Execute("update \"Delatnost\" set naziv = '" + delatnost.naziv + "' ,"
+                    + " opis = '" + delatnost.opis + "', tip = '" + delatnost.tip + "'" +
                     "  where \"delatnostID\" = '" + delatnost.delatnostID + "'");
                 return true;
             }
@@ -219,8 +198,8 @@ namespace CassandraDataLayer
                 if (session == null)
                     return false;
 
-                RowSet delatnostPodaci = session.Execute("insert into \"Delatnost\" (\"delatnostID\", naziv, opis, tip)"+ 
-                    "values ('" + delatnost.delatnostID + "', '"+delatnost.naziv+"', '"+delatnost.opis+"', '"+delatnost.tip+"')");
+                RowSet delatnostPodaci = session.Execute("insert into \"Delatnost\" (\"delatnostID\", naziv, opis, tip)" +
+                    "values ('" + delatnost.delatnostID + "', '" + delatnost.naziv + "', '" + delatnost.opis + "', '" + delatnost.tip + "')");
 
                 return true;
             }
@@ -243,7 +222,7 @@ namespace CassandraDataLayer
 
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -363,14 +342,14 @@ namespace CassandraDataLayer
                     return false;
 
                 session.Execute("insert into \"Korisnik\" (\"korisnikID\", email, ime, prezime, telefon, vebsajt, sifra)" +
-                    " values ('1', 'acastoiljkovic@gmail.com', 'Aleksandar', 'Stoiljkovic', '433232', 'acinsajt.com', '1234');");
+                    " values ('1', 'stefanpetkovic@gmail.com', 'Stefan', 'Petkovic', '433232', 'stefinsajt.com', '1234');");
 
                 session.Execute("insert into \"Korisnik\" (\"korisnikID\", email, ime, prezime, telefon, vebsajt, sifra)" +
-                    " values ('2', 'nemanjastojanovic@gmail.com', 'Nemanja', 'Stojanovic', '345632', 'nekisajt.com', '1234');");
+                    " values ('2', 'todor@gmail.com', 'Todor', 'Misic', '345632', 'todinsajt.com', '1234');");
 
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -387,9 +366,9 @@ namespace CassandraDataLayer
 
                 RowSet delatnostPodaci = session.Execute("insert into \"Korisnik\" " +
                     "(\"korisnikID\", email, ime, prezime, telefon, vebsajt, sifra)" +
-                    " values ('"+korisnik.korisnikID+"', '"+korisnik.email+"', " +
-                    "'"+korisnik.ime+"', '"+korisnik.prezime+"', '"+korisnik.telefon+"', " +
-                    "'"+korisnik.vebsajt+ "', '" + korisnik.sifra+"')");
+                    " values ('" + korisnik.korisnikID + "', '" + korisnik.email + "', " +
+                    "'" + korisnik.ime + "', '" + korisnik.prezime + "', '" + korisnik.telefon + "', " +
+                    "'" + korisnik.vebsajt + "', '" + korisnik.sifra + "')");
 
                 return true;
             }
@@ -408,8 +387,8 @@ namespace CassandraDataLayer
                 if (session == null)
                     return false;
 
-                RowSet korisnikData = session.Execute("update \"Korisnik\" set email = '"+korisnik.email+"' ," +
-                    "ime='"+korisnik.ime+ "', prezime='"+korisnik.prezime+"',telefon='"+korisnik.telefon+"',vebsajt='"+korisnik.vebsajt+"' " +
+                RowSet korisnikData = session.Execute("update \"Korisnik\" set email = '" + korisnik.email + "' ," +
+                    "ime='" + korisnik.ime + "', prezime='" + korisnik.prezime + "',telefon='" + korisnik.telefon + "',vebsajt='" + korisnik.vebsajt + "' " +
                     "  where \"korisnikID\" = '" + korisnik.korisnikID + "'");
                 CassandraDataLayer.DataStore.GetInstance().GetKorisnik().email = korisnik.email;
                 CassandraDataLayer.DataStore.GetInstance().GetKorisnik().ime = korisnik.ime;
@@ -443,7 +422,7 @@ namespace CassandraDataLayer
             }
         }
 
-        public  static Korisnik ulogujKorisnika(Korisnik kor)
+        public static Korisnik ulogujKorisnika(Korisnik kor)
         {
             ISession session = SessionManager.GetSession();
             List<Korisnik> korisnici = new List<Korisnik>();
@@ -452,7 +431,7 @@ namespace CassandraDataLayer
                 return null;
 
             var korisniciData = session.Execute("select * from \"Korisnik\" " +
-                "where \"email\" = '" + kor.email + "' and \"sifra\" = '" + kor.sifra +"' allow filtering");
+                "where \"email\" = '" + kor.email + "' and \"sifra\" = '" + kor.sifra + "' allow filtering");
 
             foreach (var korisnikData in korisniciData)
             {
@@ -479,7 +458,7 @@ namespace CassandraDataLayer
                 if (session == null)
                     return null;
 
-                var temaData = session.Execute("select * from \"Tema\" where \"delatnostID\" = '"+delatnostID+"' and \"korisnikID\" = '"+korisnikID+"' and \"temaID\" = '"+temaID+"'").FirstOrDefault();
+                var temaData = session.Execute("select * from \"Tema\" where \"delatnostID\" = '" + delatnostID + "' and \"korisnikID\" = '" + korisnikID + "' and \"temaID\" = '" + temaID + "'").FirstOrDefault();
 
                 if (temaData != null)
                 {
@@ -506,7 +485,7 @@ namespace CassandraDataLayer
 
                 var temeData = session.Execute("select * from \"Tema\"");
 
-                
+
 
                 foreach (var temaData in temeData)
                 {
@@ -549,7 +528,7 @@ namespace CassandraDataLayer
                 if (session == null)
                     return null;
 
-                var temeData = session.Execute("select * from \"Tema\" where \"korisnikID\" = '"+id+ "' allow filtering;");
+                var temeData = session.Execute("select * from \"Tema\" where \"korisnikID\" = '" + id + "' allow filtering;");
 
                 foreach (var temaData in temeData)
                 {
@@ -575,9 +554,9 @@ namespace CassandraDataLayer
                     return false;
 
                 RowSet temaData = session.Execute("update \"Tema\" set datumkreiranja = '" + tema.datumKreiranja + "' ," +
-                    "naslov='" + tema.naslov + "', sadrzaj='" + tema.sadrzaj + "',vidljivost='" + tema.vidljivost+ "'" +
-                    "  where \"korisnikID\" = '" + tema.korisnikID + "' and \"delatnostID\" = '"+tema.delatnostID+"' and" +
-                    "\"temaID\" = '"+tema.temaID+"'");
+                    "naslov='" + tema.naslov + "', sadrzaj='" + tema.sadrzaj + "',vidljivost='" + tema.vidljivost + "'" +
+                    "  where \"korisnikID\" = '" + tema.korisnikID + "' and \"delatnostID\" = '" + tema.delatnostID + "' and" +
+                    "\"temaID\" = '" + tema.temaID + "'");
                 return true;
             }
             catch (Exception e)
@@ -586,69 +565,6 @@ namespace CassandraDataLayer
             }
         }
 
-        public static bool ObrisiKomentareSaTeme(string delatnostID, string korisnikID, string temaID, string korisnikCijJeKom)
-        {
-            try
-            {
-                ISession session = SessionManager.GetSession();
-
-                if (session == null)
-                    return false;
-
-                Tema tema = VratiTemu(delatnostID, korisnikID, temaID);
-
-                string upit = "update \"Tema\" set komentari = ";
-
-                if (tema.komentari != null)
-                {
-                    if (tema.komentari.Count > 1)
-                    {
-                        upit += "{";
-                        foreach (KeyValuePair<string, IEnumerable<string>> kv in tema.komentari)
-                        {
-                            if (!kv.Key.Equals(korisnikCijJeKom))
-                            {
-                                upit += "'" + kv.Key + "':['";
-
-                                foreach (string s in kv.Value)
-                                {
-                                    upit += s + "', '";
-                                }
-
-                                upit = upit.Substring(0, upit.Length - 3);
-                                upit += "], ";
-                            }
-                            else
-                            {
-                                continue;
-                            }
-                        }
-
-                        upit = upit.Substring(0, upit.Length - 2);
-
-                        upit += "}";
-                    }
-                    else
-                    {
-                        upit += "null";
-                    }
-
-                    upit += " where \"delatnostID\" = '" + delatnostID + "' and \"korisnikID\" = '"
-                            + korisnikID + "' and \"temaID\" = '" + temaID + "';";
-                    session.Execute(upit);
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
 
 
         private static void OdradiDodeleTema(Tema tema, Row temaData)
@@ -689,8 +605,6 @@ namespace CassandraDataLayer
                     tema.naslov = temaData["naslov"].ToString();
                 else
                     tema.naslov = "";
-                if(temaData["komentari"] != null)
-                    tema.komentari = (SortedDictionary<string, IEnumerable<string>>)temaData["komentari"];
 
 
             }
@@ -699,83 +613,7 @@ namespace CassandraDataLayer
                 throw new Exception(e.Message);
             }
         }
-        public static bool DodajIzmeniKomentar(string delatnostID, string korisnikID, string temaID, string korisnikKojiKomentarise, string komentar, string stariKomentar)
-        {
-            try
-            {
-                ISession session = SessionManager.GetSession();
 
-                if (session == null)
-                    return false;
-
-                Tema tema = VratiTemu(delatnostID, korisnikID, temaID);
-
-                string upit = "update \"Tema\" set komentari = {";
-
-                bool korisnikovPrviKomentar = true;
-
-                if (tema.komentari != null)
-                {
-                    foreach (KeyValuePair<string, IEnumerable<string>> kv in tema.komentari)
-                    {
-                        upit += "'" + kv.Key + "':['";
-
-                        bool promenjen = false;
-
-                        foreach (string s in kv.Value)
-                        {
-                            if (s.Equals(stariKomentar) && !promenjen && kv.Key.Equals(korisnikKojiKomentarise))
-                            {
-                                upit += komentar;
-                                promenjen = true;
-                                korisnikovPrviKomentar = false;
-                            }
-                            else
-                            {
-                                upit += s;
-                            }
-
-                            upit += "', '";
-                        }
-
-                        if (kv.Key.Equals(korisnikKojiKomentarise) && stariKomentar.Equals(""))
-                        {
-                            korisnikovPrviKomentar = false;
-                            upit += komentar;
-                        }
-                        else
-                        {
-                            upit = upit.Substring(0, upit.Length - 4);
-                        }
-
-                        upit += "'], ";
-                    }
-
-                    if (korisnikovPrviKomentar)
-                    {
-                        upit += "'" + korisnikKojiKomentarise + "':['" + komentar;
-                    }
-                    else
-                    {
-                        upit = upit.Substring(0, upit.Length - 4);
-                    }
-                }
-                else
-                {
-                    upit += " {'" + korisnikKojiKomentarise + "':['" + komentar;
-                }
-
-                upit += "']} where \"delatnostID\" = '" + delatnostID + "' and \"korisnikID\" = '"
-                        + korisnikID + "' and \"temaID\" = '" + temaID + "';";
-                session.Execute(upit);
-
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
 
         public static bool InicijalizujTeme()
         {
@@ -799,29 +637,36 @@ namespace CassandraDataLayer
                     " voleo 4, al otom potom).', 'svi', 'Izgradnja male zgrade')");
 
                 session.Execute("insert into \"Tema\" (\"delatnostID\", \"korisnikID\", \"temaID\", datumKreiranja, sadrzaj, vidljivost, naslov)" +
-                    " values ('7', '2', '2', '" + DateTime.Now.ToString() + "', 'Potreban mi je ozbiljan savet arhitekte koji se "+
-                    "bavi izradom projekata (idejnih i glavnih) za legalizaciju tj. za dobijanje gradjevinske dozvole!Jedan gavni "+
-                    "projekat kuce sam predao Sluzbi zaduzenoj za legalizaciju pre godinu dana. Oni su ga tek od nedavno uzeli u "+
-                    "razmatranje. U njemu stoji da je to kuca sa prizemljem i potkrovljem. Medjutim, u medjuvremenu sam izgrdio sprat"+
-                    " (umesto potkrovlja), a potkrovlja nece ni biti (samo tavan). Sada mi moj arhitakta trazi 500 evra za novi idejni"+
-                    " i 2000 evra za novi glavni projekat. Da li postoji mogucnost da samo izmenim vec postojeci glavni projejat?"+
+                    " values ('7', '2', '2', '" + DateTime.Now.ToString() + "', 'Potreban mi je ozbiljan savet arhitekte koji se " +
+                    "bavi izradom projekata (idejnih i glavnih) za legalizaciju tj. za dobijanje gradjevinske dozvole!Jedan gavni " +
+                    "projekat kuce sam predao Sluzbi zaduzenoj za legalizaciju pre godinu dana. Oni su ga tek od nedavno uzeli u " +
+                    "razmatranje. U njemu stoji da je to kuca sa prizemljem i potkrovljem. Medjutim, u medjuvremenu sam izgrdio sprat" +
+                    " (umesto potkrovlja), a potkrovlja nece ni biti (samo tavan). Sada mi moj arhitakta trazi 500 evra za novi idejni" +
+                    " i 2000 evra za novi glavni projekat. Da li postoji mogucnost da samo izmenim vec postojeci glavni projejat?" +
                     "', 'svi', 'Pomoć oko projekta za realizaciju')");
 
-                DodajIzmeniKomentar("6", "1", "1", "2", "Proveri koliko brojila smes da imas a samim tim i stanova. "+
-                    "Tu nije više porodično stanovanje. 500eur po kvm izgradnja. Pitanje je sta želiš da postignes, pa to"+
-                    " odlučuje o isplativosti. 40% a mozda i manje je izgrađenost parcele. Videti lokacijske uslove.", "");
 
-                DodajIzmeniKomentar("6", "1", "1", "2", "Nisam siguran u kojoj meri ti je moj komentar pomogao, kako je prošlo na kraju?", "");
+                DodajOdgovor(new Odgovor { 
+                    KorisnikID = "2",
+                    TemaID = "1",
+                    OdgovorID = "1",
+                    Sadrzaj = "Proveri koliko brojila smes da imas a samim tin i stanova. Tu nije više porodično stanovanje. "+
+                              "500eur po kvm izgradnja. Pitanje je sta želiš da postignes, pa to odlučuje o isplativosti, "+
+                              "40 % a mozda i manje je izgrađenost parcele.Videti lokacijske uslove.",
+                    Datum = DateTime.Now.ToString(),
+                    Glasovi = 0
 
-                DodajIzmeniKomentar("6", "1", "1", "1", "Idealno bi bilo kada bi se ovaj objekat napravio, prodalo šta"+
-                    " mora da se proda da bi se pokrili troškovi izgradnje, a ovo što ostane da se rentira. Što se tiče "+
-                    "izgrađenosti, pronašao sam inforamciju je 50% dozvoljeno, možda je tačno možda i ne, ne garantujem.", "");
+                });
 
+                DodajKomentarOdgovoru("1", "2", "1", "1", "Idealno bi bilo kada bi se ovaj objekat napravio, prodalo šta mora da se proda da" +
+                    " bi se pokrili troškovi izgradnje, a ovo što ostane da se rentira. Što se tiče izgrađenosti, pronašao sam inforamciju " +
+                    "je 50 % dozvoljeno, možda je tačno možda i ne, ne garantujem.");
 
+                DodajKomentarOdgovoru("1", "2", "1", "2", "Onda bi bilo dobro da proveriš to.");
 
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -837,7 +682,7 @@ namespace CassandraDataLayer
                     return false;
 
                 RowSet temaPodaci = session.Execute("insert into \"Tema\" (\"delatnostID\", \"korisnikID\", \"temaID\", datumKreiranja, sadrzaj, vidljivost, naslov)" +
-                    " values ('" + tema.delatnostID + "', '" + tema.korisnikID + "', '" + tema.temaID + "', '" + tema.datumKreiranja + "', '" + tema.sadrzaj + "', '" + tema.vidljivost + "', '"+tema.naslov+"')");
+                    " values ('" + tema.delatnostID + "', '" + tema.korisnikID + "', '" + tema.temaID + "', '" + tema.datumKreiranja + "', '" + tema.sadrzaj + "', '" + tema.vidljivost + "', '" + tema.naslov + "')");
 
                 return true;
             }
@@ -856,8 +701,8 @@ namespace CassandraDataLayer
                 if (session == null)
                     return false;
 
-                RowSet korisnikData = session.Execute("delete from \"Tema\" where \"delatnostID\" = '" + delatnostID + "' and "+
-                    "\"korisnikID\" = '"+korisnikID+"' and \"temaID\" = '"+temaID+"'");
+                RowSet korisnikData = session.Execute("delete from \"Tema\" where \"delatnostID\" = '" + delatnostID + "' and " +
+                    "\"korisnikID\" = '" + korisnikID + "' and \"temaID\" = '" + temaID + "'");
 
                 return true;
             }
@@ -870,5 +715,304 @@ namespace CassandraDataLayer
 
         #endregion
 
+
+        #region Odgovor
+
+        public static List<Odgovor> VratiSveOdgovoreTeme(string temaID)
+        {
+            try
+            {
+                List<Odgovor> lista = new List<Odgovor>();
+
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return new List<Odgovor>();
+
+                var odgovorData = session.Execute("select * from \"Odgovor\" where \"temaID\" = '" + temaID + "' allow filtering;");
+
+                foreach (var data in odgovorData)
+                {
+                    Odgovor odg = new Odgovor();
+                    OdradiDodeleOdgovora(odg, data);
+                    lista.Add(odg);
+                }
+
+                return lista;
+            }
+            catch (Exception e)
+            {
+                return new List<Odgovor>();
+            }
+        }
+
+        private static void OdradiDodeleOdgovora(Odgovor odgovor, Row odgovorData)
+        {
+            try
+            {
+                if (odgovorData["temaID"] != null)
+                    odgovor.TemaID = odgovorData["temaID"].ToString();
+                else
+                    odgovor.TemaID = "";
+                if (odgovorData["korisnikID"] != null)
+                    odgovor.KorisnikID = odgovorData["korisnikID"].ToString();
+                else
+                    odgovor.KorisnikID = "";
+                if (odgovorData["odgovorID"] != null)
+                    odgovor.OdgovorID = odgovorData["odgovorID"].ToString();
+                else
+                    odgovor.OdgovorID = "";
+                if (odgovorData["datumkreiranja"] != null)
+                    odgovor.Datum = odgovorData["datumkreiranja"].ToString();
+                else
+                    odgovor.Datum = "";
+                if (odgovorData["sadrzaj"] != null)
+                    odgovor.Sadrzaj = odgovorData["sadrzaj"].ToString();
+                else
+                    odgovor.Sadrzaj = "";
+                if (odgovorData["glasovi"] != null)
+                    odgovor.Glasovi = Int32.Parse(odgovorData["glasovi"].ToString());
+                else
+                    odgovor.Glasovi = 0;
+
+                if (odgovorData["komentari"] != null)
+                    odgovor.komentari = (SortedDictionary<string, IEnumerable<string>>)odgovorData["komentari"];
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public static Odgovor VratiOdgovor(string odgovorID, string temaID, string korisnikID)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+                Odgovor odgovor = new Odgovor();
+
+                if (session == null)
+                    return null;
+
+                var temaData = session.Execute("select * from \"Odgovor\" where \"odgovorID\" = '" + odgovorID + "' and \"korisnikID\" = '" + korisnikID + "' and \"temaID\" = '" + temaID + "'").FirstOrDefault();
+
+                if (temaData != null)
+                {
+                    OdradiDodeleOdgovora(odgovor, temaData);
+                }
+
+                return odgovor;
+            }
+            catch (Exception e)
+            {
+                return new Odgovor();
+            }
+        }
+
+        public static bool ObrisiOdgovor(string odgovorID,string korisnikID,string temaID)
+        {
+
+            try
+            {
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return false;
+
+                session.Execute("delete from \"Odgovor\" where \"odgovorID\" = '"+ odgovorID + "' and \"korisnikID\" = '" + korisnikID + "' and \"temaID\" = '" + temaID + "'");
+
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+
+        }
+
+        public static bool DodajOdgovor(Odgovor o)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return false;
+                var odgovorData = session.Execute("insert into \"Odgovor\" (\"temaID\", \"korisnikID\", \"odgovorID\", datumkreiranja, glasovi, sadrzaj)" +
+                    " values('" + o.TemaID + "','" + o.KorisnikID + "','" + o.OdgovorID + "','" + o.Datum + "'," + o.Glasovi + ",'" + o.Sadrzaj + "')");
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static bool PromeniGlas(string odgovorID, string korisnikID, string temaID, int glasovi)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return false;
+                var odgovorData = session.Execute("update \"Odgovor\" set glasovi = " + glasovi +
+                    " where \"odgovorID\" = '" + odgovorID + "' AND \"korisnikID\" = '" + korisnikID + "' AND \"temaID\" = '" + temaID + "'");
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+
+        public static bool ObrisiKomentareSaOdgovora(string odgovorID, string korisnikID, string temaID, string korisnikCijJeKom)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return false;
+
+                Odgovor odgovor = VratiOdgovor(odgovorID, temaID, korisnikID);
+
+                string upit = "update \"Odgovor\" set komentari = ";
+
+                if (odgovor.komentari != null)
+                {
+                    if (odgovor.komentari.Count > 1)
+                    {
+                        upit += "{";
+                        foreach (KeyValuePair<string, IEnumerable<string>> kv in odgovor.komentari)
+                        {
+                            if (!kv.Key.Equals(korisnikCijJeKom))
+                            {
+                                upit += "'" + kv.Key + "':['";
+
+                                foreach (string s in kv.Value)
+                                {
+                                    upit += s + "', '";
+                                }
+
+                                upit = upit.Substring(0, upit.Length - 3);
+                                upit += "], ";
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+
+                        upit = upit.Substring(0, upit.Length - 2);
+
+                        upit += "}";
+                    }
+                    else
+                    {
+                        upit += "null";
+                    }
+
+                    upit += " where \"odgovorID\" = '" + odgovorID + "' and \"korisnikID\" = '"
+                            + korisnikID + "' and \"temaID\" = '" + temaID + "';";
+                    session.Execute(upit);
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static bool DodajKomentarOdgovoru(string odgovorID, string korisnikID, string temaID, string korisnikKojiKomentarise, string komentar)
+        {
+            try
+            {
+                ISession session = SessionManager.GetSession();
+
+                if (session == null)
+                    return false;
+
+                // pribavvi korisnika
+                //
+                Odgovor odgovor = VratiOdgovor(odgovorID, temaID, korisnikID);
+
+                string upit = "update \"Odgovor\" set komentari = {";
+
+                bool korisnikovPrviKomentar = true;
+
+                // proveravamo da li postoji neki komentar
+                if (odgovor.komentari != null)
+                {
+                    // za svakog korisnika uzimamo listu komentara
+                    foreach (KeyValuePair<string, IEnumerable<string>> kv in odgovor.komentari)
+                    {
+                        // u upit dodajemo korisnikov id i pocetak liste komentara
+                        upit += "'" + kv.Key + "':['";
+
+                        bool dodat = false;
+                        // za svaki komentar iz liste kreira upit sa starim komentarima
+                        foreach (string s in kv.Value)
+                        {
+                            upit += s;
+                            upit += "', '";
+                        }
+                        // ukoliko je to korisnik koji dodaje dodaj mu novi komentar
+                        if (kv.Key.Equals(korisnikKojiKomentarise))
+                        {
+                            korisnikovPrviKomentar = false;
+                            upit += komentar;
+                        }
+                        // inace ocisti upit
+                        else
+                        {
+                            upit = upit.Substring(0, upit.Length - 4);
+                        }
+                        // kompletiraj koemtare za tog korisnika
+                        upit += "'], ";
+                    }
+                    // ukoliko korisnik nema komentare
+                    if (korisnikovPrviKomentar)
+                    {
+                        upit += "'" + korisnikKojiKomentarise + "':['" + komentar;
+                    }
+                    // inace ocisti upit
+                    else
+                    {
+                        upit = upit.Substring(0, upit.Length - 4);
+                    }
+                }
+                // ukoliko odgovor nema komentare
+                else
+                {
+                    upit += " {'" + korisnikKojiKomentarise + "':['" + komentar;
+                }
+                // kompletiraj upit
+                upit += "']} where \"odgovorID\" = '" + odgovorID + "' and \"korisnikID\" = '"
+                        + korisnikID + "' and \"temaID\" = '" + temaID + "';";
+                session.Execute(upit);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        #endregion
     }
 }
+
+
+
