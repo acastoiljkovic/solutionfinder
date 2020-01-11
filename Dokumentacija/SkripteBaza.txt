@@ -1,0 +1,37 @@
+CREATE TABLE "Delatnost" (
+    "delatnostID" text,
+    naziv text,
+    opis text,
+    tip text,
+    PRIMARY KEY ("delatnostID")
+);
+CREATE TABLE "Korisnik" (
+    "korisnikID" text,
+    email text,
+    ime text,
+    prezime text,
+    sifra text,
+    telefon text,
+    vebsajt text,
+    PRIMARY KEY ("korisnikID")
+);
+CREATE TABLE "Odgovor" (
+    "temaID" text,
+    "korisnikID" text,
+    "odgovorID" text,
+    datumkreiranja text,
+    sadrzaj text,
+    glasovi int,
+    komentari frozen <map<text,frozen <list<text>>>>,
+    PRIMARY KEY (("temaID", "korisnikID"), "odgovorID")
+);
+CREATE TABLE "Tema" (
+    "delatnostID" text,
+    "korisnikID" text,
+    "temaID" text,
+    datumkreiranja text,
+    naslov text,
+    sadrzaj text,
+    vidljivost text,
+    PRIMARY KEY (("delatnostID", "korisnikID"), "temaID")
+);
