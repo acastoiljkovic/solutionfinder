@@ -1,4 +1,4 @@
-# solutionfinder
-#Solution Finder
+# Solution Finder
+
 Web Aplikacaja ASP.NET
 Baza Cassandra
